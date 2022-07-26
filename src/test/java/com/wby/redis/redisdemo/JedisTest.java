@@ -1,5 +1,6 @@
 package com.wby.redis.redisdemo;
 
+import com.wby.redis.redisdemo.util.JedisPoolFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,8 @@ class JedisTest {
     private Jedis jedis;
     @BeforeEach
     public void init(){
-        jedis = new Jedis("1.117.61.41", 6379);
+//        jedis = new Jedis("1.117.61.41", 6379);
+        jedis = JedisPoolFactory.getJedis();
         jedis.select(1);
     }
 
